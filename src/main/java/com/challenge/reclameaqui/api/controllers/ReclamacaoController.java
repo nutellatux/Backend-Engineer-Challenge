@@ -68,4 +68,12 @@ public class ReclamacaoController {
 		return ResponseEntity.ok(new Response<>(id));
 	}
 
+	@GetMapping(path = "/porlocalidade/{localidade}/{empresa}")
+	public ResponseEntity<Response<Integer>> getListaPorCidade(
+			@PathVariable(name = "localidade") String localidade, @PathVariable(name = "empresa") String empresa) {
+
+		return ResponseEntity.ok(new Response<Integer>(
+				this.reclamacaoService.findReclamacaoByLocalidadeAndEmpresa(localidade, empresa)));
+	}// Com Banco relacional consigo fazer muito mais elaborado, estou estudando como fazer com NoSql
+
 }
