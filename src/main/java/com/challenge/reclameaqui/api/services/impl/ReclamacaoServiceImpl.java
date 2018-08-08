@@ -15,6 +15,9 @@ public class ReclamacaoServiceImpl implements ReclamacaoService {
 	@Autowired
 	private ReclamacaoRepository reclamacaoRepository;
 
+	// @Autowired
+	// private MongoTemplate mongoTemplate;
+
 	@Override
 	public List<Reclamacao> listarTodos() {
 		return this.reclamacaoRepository.findAll();
@@ -27,6 +30,7 @@ public class ReclamacaoServiceImpl implements ReclamacaoService {
 
 	@Override
 	public Reclamacao cadastrar(Reclamacao reclamacao) {
+
 		return this.reclamacaoRepository.save(reclamacao);
 	}
 
@@ -39,6 +43,14 @@ public class ReclamacaoServiceImpl implements ReclamacaoService {
 	public void remover(String id) {
 		this.reclamacaoRepository.delete(id);
 
+	}
+
+	@Override
+	public Integer findReclamacaoByLocalidadeAndEmpresa(String localidade, String empresa) {
+
+		List<Reclamacao> lista = reclamacaoRepository.findReclamacaoByLocalidadeAndEmpresa(localidade, empresa);
+
+		return lista.size();
 	}
 
 }

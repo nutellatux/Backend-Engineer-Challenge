@@ -15,5 +15,6 @@ public interface ReclamacaoService {
 	Reclamacao atualizar(Reclamacao reclamacao);
 
 	void remover(String id);
-
-}
+	
+	Integer findReclamacaoByLocalidadeAndEmpresa(String localidade, String empresa);
+} 
