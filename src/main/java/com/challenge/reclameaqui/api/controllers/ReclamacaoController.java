@@ -50,7 +50,7 @@ public class ReclamacaoController {
 	}
 
 	@PutMapping(path = "{id}")
-	public ResponseEntity<Response<Reclamacao>> atualizar(@Valid @PathVariable(name = "id") String id,
+	public ResponseEntity<Response<Reclamacao>> atualizar(@Valid @PathVariable(name = "id ") String id,
 			@RequestBody Reclamacao reclamacao, BindingResult result) {
 		if (result.hasErrors()) {
 			List<String> erros = new ArrayList<>();
